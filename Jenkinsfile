@@ -51,13 +51,6 @@ pipeline {
             }
         }
     }
-    stage('SonarQube GateKeeper') {
-    steps {
-      timeout(time : 1, unit : 'HOURS'){
-      waitForQualityGate abortPipeline: true
-      }
-   }
-}
     stage('SonarQube Inspection') {
         steps {
             withSonarQubeEnv('SonarQube') { 
